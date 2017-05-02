@@ -36,7 +36,7 @@ var Cat = function (catData) {
 }
 
 var ViewModel = function() {
-    // we need this in order not to be confused about binding content
+    // in order not to be confused about binding content
     var self = this;
     // create observable array from initial data
     this.catList = ko.observableArray([]);
@@ -48,6 +48,7 @@ var ViewModel = function() {
     this.currentCat = ko.observable(this.catList()[0]);
     // set a current cat on click
     this.catClick = function () {
+        // 'this' here is a cat that was clicked
         self.currentCat(this);
     };
     // iCounter is in the currentCat() binding context !!!
