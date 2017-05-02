@@ -10,20 +10,19 @@
     <article class="cats">
         <h1>CatClicker App</h1>
         <ul id="cat-names"></ul>
-        <div>
-            <h2 data-bind="text: currentCat().name"></h2>
+        <div data-bind="with: currentCat()">
+            <h2 data-bind="text: name"></h2>
             <h3>Known nicknames:</h3>
-            <ul data-bind="foreach: currentCat().nicknames">
+            <ul data-bind="foreach: nicknames">
                 <li data-bind="text: $data"></li>
             </ul>
-            <img src="" alt="Cat image" data-bind="click: iCounter, attr: { src: currentCat().imgSrc }">
+            <img src="" alt="Cat image" data-bind="click: $root.iCounter, attr: { src: imgSrc }">
             <div class="clicks">Number of clicks:
-                <span data-bind="text: currentCat().clickCount"></span>
+                <span data-bind="text: clickCount"></span>
             </div>
             <div class="level">Cat level:
-                <span data-bind="text: currentCat().catLevel"></span>
+                <span data-bind="text: catLevel"></span>
             </div>
-
         </div>
     </article>
     <script type="text/javascript" src="js/libs/jquery.min.js"></script>
